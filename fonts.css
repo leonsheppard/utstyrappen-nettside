@@ -1,0 +1,4 @@
+/* Skriftene ligger på vår egen server (ingen henting fra Google ved besøk). Bare latinske tegn, inkl. æøå. */
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 400 900; font-stretch: 62% 125%; font-display: swap; src: url(fonts/Archivo.woff2) format('woff2'); }
+@font-face { font-family: 'Public Sans'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(fonts/PublicSans.woff2) format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 500 700; font-display: swap; src: url(fonts/JetBrainsMono.woff2) format('woff2'); }

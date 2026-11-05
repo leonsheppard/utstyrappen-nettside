@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Personvernerklæring – Utstyrappen</title>
+<meta name="description" content="Hvordan Utstyrappen behandler personopplysninger.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts.css">
+<style>
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+/* Layout: one readable legal column under the site's navy header band; tables for data and suppliers */
+:root {
+  --navy: #1E3A5F;
+  --orange: #F28C28;
+  --orange-ink: #B85F0C;
+  --bg: #F4F5F7;
+  --surface: #FFFFFF;
+  --ink: #1E3A5F;
+  --text: #2A3646;
+  --muted: #5E6E82;
+  --line: #DCE1E8;
+  --todo-bg: #FFF1DD;
+  --todo-ink: #6B3A00;
+  --on-navy: #FFFFFF;
+  --on-navy-muted: #B7C6DA;
+  --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --navy: #17304F; --orange: #F59A3E; --orange-ink: #F59A3E; --bg: #0E1621; --surface: #172231;
+    --ink: #E4ECF6; --text: #CFD9E6; --muted: #93A3B8; --line: #263447; --todo-bg: #3A2A12; --todo-ink: #FFD7A3;
+    --on-navy: #FFFFFF; --on-navy-muted: #A9BAD0; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --navy: #17304F; --orange: #F59A3E; --orange-ink: #F59A3E; --bg: #0E1621; --surface: #172231;
+  --ink: #E4ECF6; --text: #CFD9E6; --muted: #93A3B8; --line: #263447; --todo-bg: #3A2A12; --todo-ink: #FFD7A3;
+  --on-navy: #FFFFFF; --on-navy-muted: #A9BAD0; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.65; }
+.wrap { max-width: 760px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header { background: var(--navy); color: var(--on-navy); }
+header .wrap { padding-block: 40px 36px; display: grid; gap: 10px; }
+.brand { font-family: var(--font-display); font-weight: 800; font-stretch: 110%; font-size: 18px; color: var(--on-navy-muted); }
+h1 { font-family: var(--font-display); font-size: clamp(34px, 6vw, 52px); font-weight: 900; font-stretch: 112%; line-height: 1.05; margin: 0; text-wrap: balance; }
+header p { color: var(--on-navy-muted); margin: 0; }
+main .wrap { padding-block: 40px 64px; }
+h2 { font-family: var(--font-display); color: var(--ink); font-size: 24px; font-weight: 800; font-stretch: 108%; margin: 44px 0 10px; text-wrap: balance; line-height: 1.2; }
+h2 .num { font-family: var(--font-mono); font-size: 14px; color: var(--orange-ink); margin-right: 8px; font-weight: 700; }
+p, ul { margin: 0 0 14px; max-width: 68ch; }
+ul { padding-left: 22px; }
+li { margin-bottom: 6px; }
+strong { color: var(--ink); }
+.summary { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; }
+.summary h2 { margin-top: 0; font-size: 19px; }
+.summary ul { margin: 0; }
+.table-wrap { overflow-x: auto; margin: 6px 0 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 15px; min-width: 520px; }
+th, td { text-align: left; vertical-align: top; padding: 11px 14px; border-bottom: 1px solid var(--line); }
+th { font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+tr:last-child td { border-bottom: 0; }
+.todo { background: var(--todo-bg); color: var(--todo-ink); border-radius: 6px; padding: 1px 6px; font-weight: 600; font-size: 0.92em; }
+.draft { background: var(--orange); color: #1A1206; font-size: 14px; font-weight: 600; }
+.draft .wrap { padding-block: 8px; text-align: center; }
+.mono { font-family: var(--font-mono); font-size: 0.92em; }
+footer { color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 22px 40px; }
+</style>
+</head>
+<body>
+
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="/" style="text-decoration:none">← Utstyrappen</a>
+    <h1>Personvernerklæring</h1>
+    <p>Sist oppdatert: 5. november 2026</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="summary" aria-labelledby="kort">
+      <h2 id="kort">Kort fortalt</h2>
+      <ul>
+        <li>Vi lagrer det som trengs for at firmaet ditt skal se hvem som har hvilket utstyr: navn, e-post, rolle og hva du har hentet og levert.</li>
+        <li>Vi sporer <strong>ikke</strong> hvor du er. Kameraet brukes bare til å skanne QR-koder og ta bilder av utstyr.</li>
+        <li>Opplysningene lagres i EU, på servere i Stockholm.</li>
+        <li>Vi selger aldri opplysninger, og vi viser ikke reklame.</li>
+        <li>Du kan slette kontoen din selv i appen, under Innstillinger → Min profil.</li>
+      </ul>
+    </section>
+
+    <h2><span class="num">1</span>Hvem er ansvarlig?</h2>
+    <p>Utstyrappen leveres av <strong>Sheppard Digital</strong> (enkeltpersonforetak), org.nr. <span class="mono">938 705 119</span>.</p>
+    <p>Det er to roller å holde styr på:</p>
+    <ul>
+      <li><strong>Firmaet ditt</strong> (arbeidsgiveren som bruker appen) bestemmer hva appen brukes til i bedriften, og er <strong>behandlingsansvarlig</strong> for opplysningene om de ansatte og utstyret. Sheppard Digital er da <strong>databehandler</strong> og behandler opplysningene på vegne av firmaet, etter en databehandleravtale.</li>
+      <li>For selve kundeforholdet (konto, fakturering, kundestøtte og sikkerhet) er <strong>Sheppard Digital behandlingsansvarlig</strong>.</li>
+    </ul>
+    <p>Kontakt oss om personvern: <a class="mono" href="mailto:post@utstyrappen.no">post@utstyrappen.no</a></p>
+
+    <h2><span class="num">2</span>Hvilke opplysninger lagrer vi?</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Opplysning</th><th>Hvorfor</th></tr></thead>
+        <tbody>
+          <tr><td>Navn, e-post og passord (kryptert)</td><td>For at du skal kunne logge inn, og for at kollegene skal se hvem som har utstyret.</td></tr>
+          <tr><td>Telefonnummer (valgfritt)</td><td>Så kolleger kan nå deg om utstyr.</td></tr>
+          <tr><td>Firma, rolle (leder, ansatt, lærling) og prosjekter du er med på</td><td>For å gi deg riktig tilgang og vise utstyret på riktig prosjekt.</td></tr>
+          <tr><td>Historikk: hvem som hentet, leverte, ga bort eller meldte utstyr tapt, og når</td><td>Det er selve formålet med appen: å vite hvor utstyret er og hvem som hadde det sist.</td></tr>
+          <tr><td>Notater du skriver selv, for eksempel «Hva er galt» eller «Sist sett»</td><td>For å finne og reparere utstyr.</td></tr>
+          <tr><td>Bilder av utstyr og firmalogo</td><td>Så det er lett å kjenne igjen utstyret.</td></tr>
+          <tr><td>Forespørsler og varsler mellom kolleger</td><td>For å låne og gi utstyr til hverandre.</td></tr>
+          <tr><td>Tekniske logger (for eksempel tidspunkt for innlogging)</td><td>Sikkerhet og feilsøking.</td></tr>
+          <tr><td>Fakturaopplysninger om firmaet</td><td>For å sende faktura og føre regnskap.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Vi samler <strong>ikke</strong> inn posisjon eller GPS, kontaktlisten din, eller bilder du ikke selv velger å laste opp.</p>
+
+    <h2><span class="num">3</span>Hva er det rettslige grunnlaget?</h2>
+    <ul>
+      <li><strong>Avtale</strong> (GDPR art. 6 nr. 1 b): for å levere tjenesten firmaet har bestilt, og som du bruker.</li>
+      <li><strong>Berettiget interesse</strong> (art. 6 nr. 1 f): firmaets interesse i å ha oversikt over eget utstyr, og vår interesse i sikkerhet og feilsøking.</li>
+      <li><strong>Rettslig plikt</strong> (art. 6 nr. 1 c): regnskapsopplysninger vi må oppbevare etter bokføringsloven.</li>
+    </ul>
+
+    <h2><span class="num">4</span>Hvem ser opplysningene?</h2>
+    <p>Bare personer i ditt eget firma ser navnet ditt og utstyret du har. Andre firma som bruker Utstyrappen ser ingenting av dette. Sheppard Digital har teknisk tilgang til databasen, men ser bare på opplysninger når det trengs for kundestøtte, feilretting eller sikkerhet.</p>
+    <p>Vi bruker disse leverandørene (underdatabehandlerne) for å drive tjenesten:</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Leverandør</th><th>Brukes til</th><th>Hvor</th></tr></thead>
+        <tbody>
+          <tr><td>Supabase</td><td>Database, innlogging og lagring av bilder</td><td>EU (Stockholm, Sverige)</td></tr>
+          <tr><td>Google (Gmail)</td><td>Sending av e-post, for eksempel for nytt passord</td><td>EU/USA, med EUs standardavtaler</td></tr>
+          <tr><td>Apple</td><td>Distribusjon av appen gjennom App Store</td><td>EU/USA</td></tr>
+                  </tbody>
+      </table>
+    </div>
+    <p>Når opplysninger behandles utenfor EU/EØS, skjer det med grunnlag i EU-kommisjonens standardavtaler eller tilsvarende godkjente overføringsgrunnlag.</p>
+
+    <h2><span class="num">5</span>Hvor lenge lagrer vi opplysningene?</h2>
+    <ul>
+      <li>Så lenge du har en konto. Sletter du kontoen, slettes profilen din med en gang. Utstyr du hadde, blir stående som ledig.</li>
+      <li>Historikken om utstyret blir liggende hos firmaet, men uten koblingen til kontoen din, bortsett fra én linje om at kontoen ble slettet.</li>
+      <li>Avslutter firmaet abonnementet, slettes firmaets data senest 90 dager etter at avtalen er slutt.</li>
+      <li>Fakturaer og regnskapsbilag oppbevares i 5 år, slik bokføringsloven krever.</li>
+    </ul>
+
+    <h2><span class="num">6</span>Dine rettigheter</h2>
+    <p>Du har rett til å be om innsyn i opplysningene om deg, få dem rettet eller slettet, begrense behandlingen, protestere mot den, og få dem utlevert i et vanlig format (dataportabilitet).</p>
+    <p>Navn og telefon kan du endre selv i appen. Du kan også slette kontoen din der. For andre ønsker: kontakt arbeidsgiveren din eller oss. Vi svarer innen 30 dager.</p>
+    <p>Mener du at vi behandler opplysninger i strid med reglene, kan du klage til <strong>Datatilsynet</strong> (datatilsynet.no).</p>
+
+    <h2><span class="num">7</span>Sikkerhet</h2>
+    <p>All trafikk mellom appen og serveren er kryptert. Passord lagres aldri i klartekst. Databasen er satt opp slik at hvert firma bare får tilgang til sine egne data, og bare ledere kan gjøre endringer som berører hele firmaet.</p>
+
+    <h2><span class="num">8</span>Nettsiden</h2>
+    <p>Nettsiden utstyrappen.no bruker ingen informasjonskapsler (cookies) for sporing eller reklame.</p>
+
+    <h2><span class="num">9</span>Endringer</h2>
+    <p>Vi oppdaterer denne erklæringen når tjenesten endrer seg. Ved større endringer gir vi beskjed i appen eller på e-post.</p>
+  </div>
+</main>
+
+<footer><div class="wrap">Utstyrappen · Sheppard Digital · Org.nr <span class="mono">938 705 119</span></div></footer>
+</body>
+</html>
