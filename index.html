@@ -154,8 +154,9 @@ nav { position: relative; display: flex; align-items: center; justify-content: s
 .toggle button[aria-pressed="true"] { background: var(--navy); color: var(--on-navy); }
 .toggle .save { color: var(--orange-ink); font-weight: 700; }
 .toggle button[aria-pressed="true"] .save { color: var(--orange); }
-.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-@media (max-width: 860px) { .plans { grid-template-columns: 1fr; } }
+.plans { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+@media (max-width: 1000px) { .plans { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .plans { grid-template-columns: 1fr; } }
 .plan { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 26px 24px; display: grid; gap: 14px; align-content: start; }
 .plan.pop { border: 2px solid var(--orange); position: relative; }
 .plan.pop::before { content: "Mest valgt"; position: absolute; top: -13px; left: 22px; background: var(--orange); color: #1A1206; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
@@ -344,9 +345,15 @@ footer .mono { font-family: var(--font-mono); font-size: 13px; }
           <p class="deal" data-m="De 3 første månedene: 699 kr/mnd" data-y="Tilsvarer 833 kr/mnd">De 3 første månedene: 699 kr/mnd</p>
           <ul><li>Alt i Mellom</li><li>Hjelp med oppstart</li><li>Gratis lærlinger</li></ul>
         </div>
+        <div class="plan">
+          <h3>Bedrift</h3><p class="who">41–80 ansatte</p>
+          <div class="price"><b data-m="1 499" data-y="14 990">1 499</b><span data-m="kr/mnd" data-y="kr/år">kr/mnd</span></div>
+          <p class="deal" data-m="De 3 første månedene: 1 049 kr/mnd" data-y="Tilsvarer 1 249 kr/mnd">De 3 første månedene: 1 049 kr/mnd</p>
+          <ul><li>Alt i Stor</li><li>Fast kontaktperson</li><li>Gratis lærlinger</li></ul>
+        </div>
       </div>
-      <p class="plans-note">Flere enn 40 ansatte? Ta kontakt, så finner vi en pris som passer.</p>
-      <div class="deal" style="margin-top:22px;max-width:640px;font-size:16px;padding:14px 16px"><strong>Pilotpris for de 10 første firmaene:</strong> 3 måneder gratis, og deretter 30 % lavere pris så lenge dere er kunde: Liten 209 kr, Mellom 419 kr, Stor 699 kr i måneden.</div>
+      <p class="plans-note">Flere enn 80 ansatte? Ta kontakt, så finner vi en pris som passer.</p>
+      <div class="deal" style="margin-top:22px;max-width:640px;font-size:16px;padding:14px 16px"><strong>Pilotpris for de 10 første firmaene:</strong> 3 måneder gratis, og deretter 30 % lavere pris så lenge dere er kunde: Liten 209 kr, Mellom 419 kr, Stor 699 kr og Bedrift 1 049 kr i måneden.</div>
       <p style="margin-top:16px"><a class="btn btn-orange" href="mailto:post@utstyrappen.no?subject=Interessert%20i%20Utstyrappen&body=Hei%21%0A%0AVi%20er%20interessert%20i%20Utstyrappen.%0A%0AFirma%3A%0AAntall%20ansatte%3A%0ATelefon%3A%0A">Meld interesse for piloten</a></p>
     </div>
   </section>
