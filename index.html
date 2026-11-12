@@ -12,6 +12,17 @@
 <meta property="og:locale" content="nb_NO">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="fonts.css">
+<script>
+// Lenker fra appens e-poster (bekreft e-post, nytt passord) lander her med nøkler i adressen.
+// Send dem videre til en forklarende side, og fjern nøklene fra adressen.
+(function () {
+  var h = location.hash.slice(1), s = location.search.slice(1);
+  if (!/(access_token|error_code|error_description|type)=/.test(h + '&' + s)) return;
+  var p = new URLSearchParams(h + '&' + s);
+  var dit = p.get('error_code') || p.get('error') ? '?feil=1' : p.get('type') === 'recovery' ? '?type=recovery' : '';
+  location.replace('/bekreftet.html' + dit);
+})();
+</script>
 <style>
 html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; }
