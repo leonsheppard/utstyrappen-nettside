@@ -126,6 +126,7 @@ nav { position: relative; display: flex; align-items: center; justify-content: s
 .bubble.me { justify-self: end; border-radius: 18px 18px 4px 18px; background: var(--navy); color: var(--on-navy); border-color: transparent; }
 .bubble small { display: block; font-size: 12px; color: var(--muted); font-weight: 600; margin-bottom: 2px; }
 .bubble.me small { color: var(--on-navy-muted); }
+.solved { justify-self: end; margin: 4px 0 0; font: 700 12px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: #2E8B57; }
 .switch { display: flex; align-items: center; gap: 10px; color: var(--orange-ink); font: 700 12px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; margin-block: 6px; }
 .switch::before, .switch::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 .appcard { display: grid; grid-template-columns: 40px 1fr auto; gap: 12px; align-items: center; background: var(--surface); border: 2px solid var(--orange); border-radius: 16px; padding: 12px 14px; box-shadow: 0 14px 30px -18px rgba(15,30,50,.45); }
@@ -286,16 +287,14 @@ footer .mono { font-family: var(--font-mono); font-size: 13px; }
         <p class="lead">Utstyret flytter seg mellom bil, verksted og byggeplass hele dagen. I stedet for å ringe rundt, søker du i appen og ser med en gang hvem som har det, og hvor.</p>
         <div class="cost"><strong>3 000–5 000 kr</strong><span>koster en ny drill. Finner appen én ting i året, har den betalt for seg.</span></div>
       </div>
-      <div class="calls" aria-label="Eksempel: fra leting til svar i appen">
+      <div class="calls" aria-label="Eksempel på en samtale der Utstyrappen finner laseren">
         <div class="bubble me"><small>Deg, 07:12</small>Hvem har laseren?</div>
         <div class="bubble"><small>Martin</small>Ikke jeg. Spør Ola?</div>
-        <div class="switch"><span>Med Utstyrappen</span></div>
-        <div class="appcard">
-          <span class="appcard-ico" aria-hidden="true"><svg viewBox="0 0 18 18" width="18" height="18"><rect x="1" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="11" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="1" y="11" width="6" height="6" rx="1" fill="currentColor"/><rect x="11" y="11" width="3" height="3" fill="currentColor"/><rect x="14" y="14" width="3" height="3" fill="currentColor"/></svg></span>
-          <div><b>Hilti laser #02</b><span>Hos Emil · Bakkeveien 12</span></div>
-          <em>Utlånt</em>
-        </div>
-        <div class="bubble me"><small>Deg, 07:13</small>Fant den! Kommer innom Bakkeveien og henter den 👍</div>
+        <div class="bubble me"><small>Deg, 07:13</small>Ola, har du den?</div>
+        <div class="bubble"><small>Ola</small>Nei, men sjekk Utstyrappen 😉</div>
+        <div class="bubble me"><small>Deg, 07:14</small>Står hos Emil på Bakkeveien 12. Kjører innom 👍</div>
+        <div class="bubble"><small>Emil</small>Ligger i bilen, bare ta den!</div>
+        <p class="solved">Funnet på 2 minutter, uten å ringe rundt.</p>
       </div>
     </div>
   </section>
