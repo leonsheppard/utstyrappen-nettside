@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Funksjoner – Utstyrappen</title>
+<meta name="description" content="Alt Utstyrappen kan: hente og levere, skanne QR, prosjekter, meld feil og tapt, etiketter, ansatte og varsler.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts.css">
+<style>
+/* Layout: a spec sheet – grouped chapters, each a header rail on the left and a two-column list of features on the right */
+:root {
+  --navy: #1E3A5F;
+  --navy-deep: #142A46;
+  --orange: #F28C28;
+  --orange-ink: #B85F0C;
+  --bg: #F4F5F7;
+  --surface: #FFFFFF;
+  --ink: #1E3A5F;
+  --muted: #5E6E82;
+  --line: #DCE1E8;
+  --on-navy: #FFFFFF;
+  --on-navy-muted: #B7C6DA;
+  --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --navy: #17304F; --navy-deep: #0E1F35; --orange: #F59A3E; --orange-ink: #F59A3E; --bg: #0E1621; --surface: #172231; --ink: #E4ECF6; --muted: #93A3B8; --line: #263447; --on-navy-muted: #A9BAD0; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.6; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; border-radius: 6px; }
+header { background: var(--navy); color: var(--on-navy); }
+nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 800; font-stretch: 110%; font-size: 21px; text-decoration: none; }
+.brand img { width: 30px; height: 30px; }
+.links { display: flex; align-items: center; gap: 22px; font-weight: 600; font-size: 15px; }
+.links a:not(.btn) { color: var(--on-navy-muted); text-decoration: none; }
+.links a:not(.btn):hover, .links a[aria-current] { color: var(--on-navy); }
+@media (max-width: 640px) { .links a:not(.btn) { display: none; } }
+.btn { display: inline-flex; align-items: center; justify-content: center; height: 46px; padding: 0 20px; border-radius: 12px; font-weight: 700; font-size: 15px; text-decoration: none; }
+.btn-orange { background: var(--orange); color: #1A1206; }
+.hero { padding-block: 28px 56px; display: grid; gap: 12px; max-width: 760px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--orange); margin: 0; }
+h1 { font-family: var(--font-display); font-weight: 900; font-stretch: 115%; font-size: clamp(36px, 6vw, 58px); line-height: 1.04; margin: 0; text-wrap: balance; }
+.hero p { margin: 0; color: var(--on-navy-muted); font-size: 18px; }
+main { padding-block: 48px 24px; }
+.chapter { display: grid; grid-template-columns: 260px 1fr; gap: 32px; padding-block: 36px; border-top: 1px solid var(--line); }
+.chapter:first-child { border-top: 0; padding-top: 8px; }
+@media (max-width: 820px) { .chapter { grid-template-columns: 1fr; gap: 18px; } }
+.rail { display: grid; gap: 10px; align-content: start; }
+.ico { width: 48px; height: 48px; border-radius: 12px; background: color-mix(in srgb, var(--orange) 16%, transparent); color: var(--orange-ink); display: grid; place-items: center; }
+.ico svg { width: 24px; height: 24px; }
+h2 { font-family: var(--font-display); font-weight: 800; font-stretch: 110%; font-size: 26px; line-height: 1.15; margin: 0; text-wrap: balance; }
+.rail p { margin: 0; color: var(--muted); font-size: 15px; }
+.items { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+@media (max-width: 620px) { .items { grid-template-columns: 1fr; } }
+.item { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.item h3 { font-family: var(--font-display); font-weight: 700; font-stretch: 104%; font-size: 18px; margin: 0; line-height: 1.25; }
+.item p { margin: 0; color: var(--muted); font-size: 15px; }
+.tag { justify-self: start; font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--orange-ink); background: color-mix(in srgb, var(--orange) 14%, transparent); padding: 3px 8px; border-radius: 999px; }
+.soon .item { background: transparent; border-style: dashed; }
+.cta { background: var(--navy); color: var(--on-navy); border-radius: 20px; padding: 36px 28px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; margin-block: 24px 56px; }
+.cta h2 { color: var(--on-navy); }
+.cta p { margin: 6px 0 0; color: var(--on-navy-muted); }
+footer { background: var(--navy-deep); color: var(--on-navy-muted); font-size: 14px; }
+footer .wrap { padding-block: 24px; display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; }
+footer a { text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav aria-label="Hovedmeny">
+      <a class="brand" href="/"><img src="favicon.svg" alt="">Utstyrappen</a>
+      <div class="links">
+        <a href="funksjoner.html" aria-current="page">Funksjoner</a>
+        <a href="bilder.html">Bilder</a>
+        <a href="/#priser">Priser</a>
+        <a class="btn btn-orange" href="mailto:post@utstyrappen.no?subject=Interessert%20i%20Utstyrappen">Meld interesse</a>
+      </div>
+    </nav>
+    <div class="hero">
+      <p class="eyebrow">Funksjoner</p>
+      <h1>Alt Utstyrappen kan gjøre.</h1>
+      <p>Laget for håndverksfirma: enkelt nok for lærlingen, og med den oversikten sjefen trenger.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="chapter">
+    <div class="rail">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg></span>
+      <h2>Hente og levere</h2>
+      <p>Ett trykk når du tar noe, og ett når du er ferdig.</p>
+    </div>
+    <div class="items">
+      <div class="item"><h3>Hent</h3><p>Ta utstyr fra lageret. Du har ansvaret til du leverer det inn eller gir det videre.</p></div>
+      <div class="item"><h3>Hent fra kollega</h3><p>Står du med utstyret i hånda, tar du det over med en gang. Kollegaen får beskjed.</p></div>
+      <div class="item"><h3>Spør først</h3><p>Send en forespørsel om å låne noe en kollega har. De svarer ja med ett trykk.</p></div>
+      <div class="item"><h3>Gi til kollega</h3><p>Gi utstyret ditt videre. Den andre må ta imot før ansvaret går over, og du kan trekke det tilbake.</p></div>
+      <div class="item"><h3>Lever inn</h3><p>Velg om du setter det på lageret, eller igjen på prosjektet til neste dag.</p></div>
+      <div class="item"><h3>Mitt utstyr</h3><p>Forsiden viser alltid det du selv har ansvaret for akkurat nå.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="rail">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M21 21h-4M21 14v3"/></svg></span>
+      <h2>Finne utstyr</h2>
+      <p>Svar på «hvem har den?» på sekunder.</p>
+    </div>
+    <div class="items">
+      <div class="item"><h3>Skann QR-etiketten</h3><p>Kameraet leser bare koden inni rammen, så du treffer riktig selv når flere står tett.</p></div>
+      <div class="item"><h3>Søk og filtre</h3><p>Søk på utstyr, person eller prosjekt. Filtrer på status og kategori.</p></div>
+      <div class="item"><h3>Hvem har hva</h3><p>Trykk på en kollega for å se alt utstyret de har med seg.</p></div>
+      <div class="item"><h3>Like utstyr i serie</h3><p>Stige #01, #02, #03 … Sveip til siden for å bla mellom dem.</p></div>
+      <div class="item"><h3>Bilder og kategorier</h3><p>Legg bilde på utstyret, og sorter i egne kategorier som drill, sag og stige.</p></div>
+      <div class="item"><h3>Historikk</h3><p>Se hvem som har hatt utstyret, og når det ble hentet og levert.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="rail">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span>
+      <h2>Prosjekter</h2>
+      <p>Hver byggeplass med eget utstyr og egne ansvarlige.</p>
+    </div>
+    <div class="items">
+      <div class="item"><h3>Utstyr på prosjektet</h3><p>Se alt som står på plassen, og det folkene der har med seg.</p></div>
+      <div class="item"><h3>Står på plassen</h3><p>Sett utstyr igjen på prosjektet uten at noen har ansvaret. Den som trenger det, henter det derfra.</p></div>
+      <div class="item"><h3>Ansvarlige og roller</h3><p>Velg prosjektleder, og gi roller som HMS-ansvarlig eller bas. Rollene gjelder bare det ene prosjektet.</p></div>
+      <div class="item"><h3>Bli med</h3><p>Ansatte melder seg på prosjektene de jobber på, og velger prosjekt når de henter noe.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="rail">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v3M11 14h.01"/></svg></span>
+      <h2>Feil og tap</h2>
+      <p>Ødelagt eller borte? Alle vet det med en gang.</p>
+    </div>
+    <div class="items">
+      <div class="item"><h3>Meld feil</h3><p>Skriv hva som er galt. Utstyret står som «på service», så ingen andre tar det med seg.</p></div>
+      <div class="item"><h3>Meld tapt</h3><p>Skriv hvor det ble sett sist. Lederne får beskjed.</p></div>
+      <div class="item"><h3>Jeg har funnet den</h3><p>Den som finner noe som er meldt tapt, trykker «funnet» og får ansvaret.</p></div>
+      <div class="item"><h3>Si fra når den dukker opp</h3><p>Trenger du noe som er borte, får du et varsel når noen finner det.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="rail">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg></span>
+      <h2>Etiketter</h2>
+      <p>QR-etiketter rett fra appen.</p>
+    </div>
+    <div class="items">
+      <div class="item"><h3>Registrer mange like</h3><p>Skriv antall, så får de numre automatisk, og hver sin QR-kode.</p></div>
+      <div class="item"><h3>Skriv ut selv</h3><p>5 × 5 eller 3 × 3 cm på vanlig A4, eller lagre som PDF og send til den som skriver ut.</p></div>
+      <div class="item"><h3>Bytt slitt etikett</h3><p>Skann en ny etikett og koble den til utstyr som finnes fra før.</p></div>
+      <div class="item"><h3>Skriv inn koden</h3><p>Er etiketten skadet, kan koden skrives inn for hånd.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="rail">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 1.8 6 5"/></svg></span>
+      <h2>Ansatte og sjefen</h2>
+      <p>Riktig tilgang for hver person.</p>
+    </div>
+    <div class="items">
+      <div class="item"><h3>Invitasjonskode</h3><p>Del koden, så melder de ansatte seg inn selv.</p></div>
+      <div class="item"><h3>Godkjenning</h3><p>Nye ansatte og lærlinger kommer først inn når en leder har godkjent dem.</p></div>
+      <div class="item"><h3>Lærlinger er gratis</h3><p>Lærlinger teller ikke med i prisen, uansett pakke.</p></div>
+      <div class="item"><h3>Firmalogo</h3><p>Firmaets logo vises i appen for alle ansatte.</p></div>
+      <div class="item"><h3>Varsler</h3><p>Forespørsler, tilbud og beskjeder samlet på ett sted.</p></div>
+      <div class="item"><h3>Veiledning i appen</h3><p>Kort introduksjon første gang, og en søkbar hjelpeside.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="rail">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v5c0 4.4 3.4 8.2 8 9 4.6-.8 8-4.6 8-9V7l-8-4z"/><path d="m9 12 2 2 4-4"/></svg></span>
+      <h2>Trygt</h2>
+      <p>Firmaets data er firmaets data.</p>
+    </div>
+    <div class="items">
+      <div class="item"><h3>Lagret i EU</h3><p>Dataene ligger på servere i Stockholm.</p></div>
+      <div class="item"><h3>Bare ditt firma</h3><p>Hvert firma ser bare sitt eget utstyr og sine egne ansatte.</p></div>
+      <div class="item"><h3>Ingen sporing</h3><p>Appen bruker ikke posisjon. Kameraet brukes bare til skanning og bilder av utstyr.</p></div>
+      <div class="item"><h3>Slett kontoen selv</h3><p>Hver bruker kan slette kontoen sin i appen. <a href="personvern.html">Les personvernerklæringen</a>.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter soon">
+    <div class="rail">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+      <h2>Kommer</h2>
+      <p>Det vi jobber med nå.</p>
+    </div>
+    <div class="items">
+      <div class="item"><span class="tag">Kommer</span><h3>Push-varsler</h3><p>Varsel på telefonen når noen spør om å låne, eller gir deg noe.</p></div>
+      <div class="item"><span class="tag">Kommer</span><h3>Android</h3><p>Appen kommer først til iPhone, og deretter til Android.</p></div>
+      <div class="item"><span class="tag">Kommer</span><h3>Oversikt på PC</h3><p>En egen nettside der sjefen kan se alt utstyret på en stor skjerm.</p></div>
+      <div class="item"><span class="tag">Kommer</span><h3>Ferdige etiketter</h3><p>Værbestandige QR-etiketter du kan bestille fra oss.</p></div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <div>
+      <h2>Vil du prøve?</h2>
+      <p>Pilot vinteren 2027: 10 plasser, 3 måneder gratis og fast lavere pris.</p>
+    </div>
+    <a class="btn btn-orange" href="mailto:post@utstyrappen.no?subject=Interessert%20i%20Utstyrappen">Meld interesse</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Utstyrappen · Sheppard Digital · Org.nr 938 705 119</span>
+    <span><a href="/">Forsiden</a> · <a href="bilder.html">Bilder</a> · <a href="personvern.html">Personvern</a></span>
+  </div>
+</footer>
+</body>
+</html>

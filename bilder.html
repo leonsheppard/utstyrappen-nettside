@@ -38,6 +38,10 @@ header { background: var(--navy); color: var(--on-navy); }
 nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; }
 .brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 800; font-stretch: 110%; font-size: 21px; text-decoration: none; }
 .brand img { width: 30px; height: 30px; }
+.links { display: flex; align-items: center; gap: 22px; font-weight: 600; font-size: 15px; }
+.links a:not(.btn) { color: var(--on-navy-muted); text-decoration: none; }
+.links a:not(.btn):hover, .links a[aria-current] { color: var(--on-navy); }
+@media (max-width: 640px) { .links a:not(.btn) { display: none; } }
 .btn { display: inline-flex; align-items: center; justify-content: center; height: 46px; padding: 0 20px; border-radius: 12px; font-weight: 700; font-size: 15px; text-decoration: none; }
 .btn-orange { background: var(--orange); color: #1A1206; }
 .hero { padding-block: 28px 56px; display: grid; gap: 12px; max-width: 720px; }
@@ -72,7 +76,12 @@ footer a { text-decoration: none; }
   <div class="wrap">
     <nav aria-label="Hovedmeny">
       <a class="brand" href="/"><img src="favicon.svg" alt="">Utstyrappen</a>
-      <a class="btn btn-orange" href="mailto:post@utstyrappen.no?subject=Interessert%20i%20Utstyrappen">Meld interesse</a>
+      <div class="links">
+        <a href="funksjoner.html">Funksjoner</a>
+        <a href="bilder.html" aria-current="page">Bilder</a>
+        <a href="/#priser">Priser</a>
+        <a class="btn btn-orange" href="mailto:post@utstyrappen.no?subject=Interessert%20i%20Utstyrappen">Meld interesse</a>
+      </div>
     </nav>
     <div class="hero">
       <p class="eyebrow">Bilder av appen</p>
@@ -118,7 +127,7 @@ footer a { text-decoration: none; }
   </section>
 
   <section class="step">
-    <div class="phone"><img src="bilder/prosjekt.jpg" alt="Prosjektsiden med ansvarlige, ansatte og utstyr på prosjektet" width="520" height="1125" loading="lazy"></div>
+    <div class="phone"><img src="bilder/prosjekt.jpg" alt="Prosjektsiden med ansvarlige, ansatte og utstyr på prosjektet" width="600" height="1298" loading="lazy"></div>
     <div class="text">
       <span class="num">4 · Prosjekter</span>
       <h2>Alt på byggeplassen</h2>
@@ -159,7 +168,7 @@ footer a { text-decoration: none; }
 <footer>
   <div class="wrap">
     <span>Utstyrappen · Sheppard Digital · Org.nr 938 705 119</span>
-    <span><a href="/">Forsiden</a> · <a href="personvern.html">Personvern</a></span>
+    <span><a href="/">Forsiden</a> · <a href="funksjoner.html">Funksjoner</a> · <a href="personvern.html">Personvern</a></span>
   </div>
 </footer>
 </body>
