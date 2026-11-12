@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brukervilkår – Utstyrappen</title>
+<meta name="description" content="Vilkårene for å bruke Utstyrappen.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts.css">
+<style>
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+/* Layout: one readable legal column under the site's navy header band; tables for data and suppliers */
+:root {
+  --navy: #1E3A5F;
+  --orange: #F28C28;
+  --orange-ink: #B85F0C;
+  --bg: #F4F5F7;
+  --surface: #FFFFFF;
+  --ink: #1E3A5F;
+  --text: #2A3646;
+  --muted: #5E6E82;
+  --line: #DCE1E8;
+  --todo-bg: #FFF1DD;
+  --todo-ink: #6B3A00;
+  --on-navy: #FFFFFF;
+  --on-navy-muted: #B7C6DA;
+  --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --navy: #17304F; --orange: #F59A3E; --orange-ink: #F59A3E; --bg: #0E1621; --surface: #172231;
+    --ink: #E4ECF6; --text: #CFD9E6; --muted: #93A3B8; --line: #263447; --todo-bg: #3A2A12; --todo-ink: #FFD7A3;
+    --on-navy: #FFFFFF; --on-navy-muted: #A9BAD0; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --navy: #17304F; --orange: #F59A3E; --orange-ink: #F59A3E; --bg: #0E1621; --surface: #172231;
+  --ink: #E4ECF6; --text: #CFD9E6; --muted: #93A3B8; --line: #263447; --todo-bg: #3A2A12; --todo-ink: #FFD7A3;
+  --on-navy: #FFFFFF; --on-navy-muted: #A9BAD0; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.65; }
+.wrap { max-width: 760px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header { background: var(--navy); color: var(--on-navy); }
+header .wrap { padding-block: 40px 36px; display: grid; gap: 10px; }
+.brand { font-family: var(--font-display); font-weight: 800; font-stretch: 110%; font-size: 18px; color: var(--on-navy-muted); }
+h1 { font-family: var(--font-display); font-size: clamp(34px, 6vw, 52px); font-weight: 900; font-stretch: 112%; line-height: 1.05; margin: 0; text-wrap: balance; }
+header p { color: var(--on-navy-muted); margin: 0; }
+main .wrap { padding-block: 40px 64px; }
+h2 { font-family: var(--font-display); color: var(--ink); font-size: 24px; font-weight: 800; font-stretch: 108%; margin: 44px 0 10px; text-wrap: balance; line-height: 1.2; }
+h2 .num { font-family: var(--font-mono); font-size: 14px; color: var(--orange-ink); margin-right: 8px; font-weight: 700; }
+p, ul { margin: 0 0 14px; max-width: 68ch; }
+ul { padding-left: 22px; }
+li { margin-bottom: 6px; }
+strong { color: var(--ink); }
+.summary { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; }
+.summary h2 { margin-top: 0; font-size: 19px; }
+.summary ul { margin: 0; }
+.table-wrap { overflow-x: auto; margin: 6px 0 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 15px; min-width: 520px; }
+th, td { text-align: left; vertical-align: top; padding: 11px 14px; border-bottom: 1px solid var(--line); }
+th { font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+tr:last-child td { border-bottom: 0; }
+.todo { background: var(--todo-bg); color: var(--todo-ink); border-radius: 6px; padding: 1px 6px; font-weight: 600; font-size: 0.92em; }
+.draft { background: var(--orange); color: #1A1206; font-size: 14px; font-weight: 600; }
+.draft .wrap { padding-block: 8px; text-align: center; }
+.mono { font-family: var(--font-mono); font-size: 0.92em; }
+footer { color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 22px 40px; }
+</style>
+</head>
+<body>
+
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="/" style="text-decoration:none">← Utstyrappen</a>
+    <h1>Brukervilkår</h1>
+    <p>Gjelder fra: 12. november 2026</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="summary" aria-labelledby="kort">
+      <h2 id="kort">Kort fortalt</h2>
+      <ul>
+        <li>Avtalen er mellom Sheppard Digital og firmaet som bruker Utstyrappen.</li>
+        <li>Dere betaler en fast pris per måned eller per år, og kan si opp når dere vil.</li>
+        <li>Dataene er firmaets. Vi selger dem aldri og bruker dem bare for å levere tjenesten.</li>
+        <li>Appen er et hjelpemiddel for å holde oversikt. Vi er ikke ansvarlige for utstyr som blir borte eller ødelagt.</li>
+      </ul>
+    </section>
+
+    <h2><span class="num">1</span>Hvem avtalen gjelder</h2>
+    <p>Utstyrappen leveres av <strong>Sheppard Digital</strong> (enkeltpersonforetak), org.nr. <span class="mono">938 705 119</span>. Disse vilkårene er avtalen mellom Sheppard Digital («vi») og firmaet som tar i bruk Utstyrappen («kunden»).</p>
+    <p>Ansatte og lærlinger som bruker appen, gjør det på vegne av kunden. Kunden er ansvarlig for at de som får tilgang, følger vilkårene.</p>
+    <p>Hvordan vi behandler personopplysninger, står i <a href="personvern.html">personvernerklæringen</a> og i <a href="databehandleravtale.html">databehandleravtalen</a>.</p>
+
+    <h2><span class="num">2</span>Konto og tilgang</h2>
+    <ul>
+      <li>Kunden oppretter et firma i appen. Den som oppretter firmaet, blir leder.</li>
+      <li>Ledere bestemmer hvem som får tilgang, og godkjenner nye ansatte og lærlinger.</li>
+      <li>Hver bruker skal ha sin egen konto og holde passordet sitt hemmelig.</li>
+      <li>Kunden skal si fra til oss med en gang hvis de tror noen uvedkommende har fått tilgang.</li>
+    </ul>
+
+    <h2><span class="num">3</span>Pris og betaling</h2>
+    <ul>
+      <li>Prisene står på <a href="/#priser">utstyrappen.no</a> og er oppgitt uten merverdiavgift.</li>
+      <li>Prisen avhenger av antall ansatte. Lærlinger regnes ikke med.</li>
+      <li>Vi sender faktura på forskudd, enten månedlig eller årlig. Betalingsfristen er 14 dager.</li>
+      <li>Ved for sen betaling kan vi ta forsinkelsesrente etter forsinkelsesrenteloven. Blir en faktura ikke betalt etter purring, kan vi stenge tilgangen til den er betalt. Dataene slettes ikke av den grunn.</li>
+      <li>Vi kan endre prisene med minst 30 dagers varsel. Har kunden betalt for et år, gjelder den gamle prisen ut året.</li>
+      <li><strong>Pilotkunder</strong> beholder pilotprisen så lenge de er sammenhengende kunder.</li>
+    </ul>
+
+    <h2><span class="num">4</span>Oppsigelse</h2>
+    <ul>
+      <li><strong>Månedlig betaling:</strong> kan sies opp når som helst, og gjelder fra neste måned.</li>
+      <li><strong>Årlig betaling:</strong> gjelder ut perioden som er betalt. Det betales ikke tilbake for resten av året.</li>
+      <li>Oppsigelse sendes til <a href="mailto:post@utstyrappen.no">post@utstyrappen.no</a>.</li>
+      <li>Etter at avtalen er slutt, sletter vi kundens data senest 90 dager etterpå. Før det kan kunden be om en kopi av dataene.</li>
+      <li>Vi kan si opp avtalen med 3 måneders varsel, for eksempel hvis vi legger ned tjenesten. Bryter kunden vilkårene alvorlig, kan vi stenge tilgangen med en gang.</li>
+    </ul>
+
+    <h2><span class="num">5</span>Kundens data</h2>
+    <ul>
+      <li>Alt kunden legger inn, som utstyr, bilder, prosjekter og historikk, tilhører kunden.</li>
+      <li>Vi bruker dataene bare for å levere og forbedre tjenesten, og vi selger dem aldri.</li>
+      <li>Vi kan bruke anonymisert statistikk, for eksempel antall registrerte utstyr totalt, så lenge ingen kunde eller person kan kjennes igjen.</li>
+    </ul>
+
+    <h2><span class="num">6</span>Bruk av tjenesten</h2>
+    <p>Kunden og brukerne skal bruke Utstyrappen på en lovlig måte. Det er ikke lov å:</p>
+    <ul>
+      <li>prøve å få tilgang til andre firmaers data, eller omgå sikkerheten i appen</li>
+      <li>laste opp innhold som er ulovlig, eller som krenker andre</li>
+      <li>kopiere, selge eller videreformidle tjenesten til andre</li>
+    </ul>
+
+    <h2><span class="num">7</span>Drift og endringer</h2>
+    <ul>
+      <li>Vi jobber for at tjenesten skal være stabil og tilgjengelig, men kan ikke love at den alltid virker uten avbrudd.</li>
+      <li>Vi kan gjøre vedlikehold og oppdateringer, og forbedre eller endre funksjoner. Fjerner vi en viktig funksjon, gir vi beskjed i god tid.</li>
+    </ul>
+
+    <h2><span class="num">8</span>Ansvar</h2>
+    <ul>
+      <li>Utstyrappen er et hjelpemiddel for å holde oversikt over utstyr. Vi er <strong>ikke ansvarlige</strong> for utstyr som blir borte, stjålet eller ødelagt, eller for feil i det kunden og brukerne legger inn.</li>
+      <li>Vi er ikke ansvarlige for indirekte tap, som tapt fortjeneste eller forsinkelser i et prosjekt.</li>
+      <li>Vårt samlede ansvar er begrenset til det kunden har betalt for tjenesten de siste 12 månedene.</li>
+      <li>Begrensningene gjelder ikke hvis vi har opptrådt grovt uaktsomt eller med vilje.</li>
+    </ul>
+
+    <h2><span class="num">9</span>Endringer i vilkårene</h2>
+    <p>Vi kan endre disse vilkårene. Ved viktige endringer gir vi beskjed på e-post eller i appen minst 30 dager før de gjelder. Bruker kunden tjenesten etter det, gjelder de nye vilkårene.</p>
+
+    <h2><span class="num">10</span>Lov og tvister</h2>
+    <p>Avtalen følger norsk rett. Blir vi uenige, skal vi først prøve å løse det i minnelighet. Hvis det ikke lykkes, er Agder tingrett avtalt verneting.</p>
+
+    <h2><span class="num">11</span>Kontakt</h2>
+    <p>Sheppard Digital · <a class="mono" href="mailto:post@utstyrappen.no">post@utstyrappen.no</a> · <a href="/">utstyrappen.no</a></p>
+  </div>
+</main>
+
+
+<footer><div class="wrap">Utstyrappen · Sheppard Digital · Org.nr <span class="mono">938 705 119</span> · <a href="personvern.html">Personvern</a> · <a href="vilkar.html">Brukervilkår</a> · <a href="databehandleravtale.html">Databehandleravtale</a></div></footer>
+</body>
+</html>
