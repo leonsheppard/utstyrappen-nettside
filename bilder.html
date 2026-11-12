@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bilder av appen – Utstyrappen</title>
+<meta name="description" content="Se hvordan Utstyrappen ser ut: oversikt, skanning, lager, prosjekter, etiketter og ansatte.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts.css">
+<style>
+/* Layout: a guided tour – one phone per row, alternating sides, a numbered step beside each */
+:root {
+  --navy: #1E3A5F;
+  --navy-deep: #142A46;
+  --orange: #F28C28;
+  --orange-ink: #B85F0C;
+  --bg: #F4F5F7;
+  --surface: #FFFFFF;
+  --ink: #1E3A5F;
+  --muted: #5E6E82;
+  --line: #DCE1E8;
+  --on-navy: #FFFFFF;
+  --on-navy-muted: #B7C6DA;
+  --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --navy: #17304F; --navy-deep: #0E1F35; --orange: #F59A3E; --orange-ink: #F59A3E; --bg: #0E1621; --surface: #172231; --ink: #E4ECF6; --muted: #93A3B8; --line: #263447; --on-navy-muted: #A9BAD0; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.6; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; border-radius: 6px; }
+header { background: var(--navy); color: var(--on-navy); }
+nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 800; font-stretch: 110%; font-size: 21px; text-decoration: none; }
+.brand img { width: 30px; height: 30px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; height: 46px; padding: 0 20px; border-radius: 12px; font-weight: 700; font-size: 15px; text-decoration: none; }
+.btn-orange { background: var(--orange); color: #1A1206; }
+.hero { padding-block: 28px 56px; display: grid; gap: 12px; max-width: 720px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--orange); margin: 0; }
+h1 { font-family: var(--font-display); font-weight: 900; font-stretch: 115%; font-size: clamp(36px, 6vw, 58px); line-height: 1.04; margin: 0; text-wrap: balance; }
+.hero p { margin: 0; color: var(--on-navy-muted); font-size: 18px; }
+main { padding-block: 56px 24px; }
+.step { display: grid; grid-template-columns: 300px 1fr; gap: clamp(28px, 6vw, 72px); align-items: center; margin-bottom: 72px; }
+.step:nth-child(even) { grid-template-columns: 1fr 300px; }
+.step:nth-child(even) .phone { order: 2; }
+@media (max-width: 760px) {
+  .step, .step:nth-child(even) { grid-template-columns: 1fr; justify-items: center; text-align: left; }
+  .step:nth-child(even) .phone { order: 0; }
+}
+.phone { width: min(300px, 76vw); max-width: 100%; border-radius: 40px; padding: 10px; background: #0C1420; box-shadow: 0 30px 60px -25px rgba(15,30,50,.45); }
+.phone img { display: block; width: 100%; height: auto; border-radius: 31px; }
+.text { display: grid; gap: 10px; min-width: 0; max-width: 520px; }
+.num { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--orange-ink); letter-spacing: .08em; text-transform: uppercase; }
+h2 { font-family: var(--font-display); font-weight: 800; font-stretch: 110%; font-size: clamp(26px, 3.4vw, 34px); line-height: 1.1; margin: 0; text-wrap: balance; }
+.text p { margin: 0; color: var(--muted); }
+.text ul { margin: 4px 0 0; padding-left: 20px; color: var(--muted); display: grid; gap: 4px; }
+.cta { background: var(--navy); color: var(--on-navy); border-radius: 20px; padding: 36px 28px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; margin-bottom: 56px; }
+.cta h2 { color: var(--on-navy); }
+.cta p { margin: 6px 0 0; color: var(--on-navy-muted); }
+footer { background: var(--navy-deep); color: var(--on-navy-muted); font-size: 14px; }
+footer .wrap { padding-block: 24px; display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; }
+footer a { text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav aria-label="Hovedmeny">
+      <a class="brand" href="/"><img src="favicon.svg" alt="">Utstyrappen</a>
+      <a class="btn btn-orange" href="mailto:post@utstyrappen.no?subject=Interessert%20i%20Utstyrappen">Meld interesse</a>
+    </nav>
+    <div class="hero">
+      <p class="eyebrow">Bilder av appen</p>
+      <h1>Slik ser Utstyrappen ut.</h1>
+      <p>En rask tur gjennom de viktigste skjermene, fra oversikten på forsiden til etiketter og ansatte.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="step">
+    <div class="phone"><img src="bilder/hjem.jpg" alt="Forsiden i appen med tall for totalt, ledig, utlånt og service" width="600" height="1304" loading="lazy"></div>
+    <div class="text">
+      <span class="num">1 · Forsiden</span>
+      <h2>Oversikt med en gang</h2>
+      <p>Når du åpner appen, ser du med en gang hvor mye utstyr firmaet har, og hvor mye som er ledig, utlånt eller på service. Trykk på et tall for å se listen.</p>
+      <p>Under ser du utstyret du selv har ansvaret for, og hvem i firmaet som har noe med seg.</p>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="phone"><img src="bilder/skann.jpg" alt="Skann-skjermen med kameraet rettet mot en QR-etikett" width="600" height="1304" loading="lazy"></div>
+    <div class="text">
+      <span class="num">2 · Skann</span>
+      <h2>Skann og hent</h2>
+      <p>Hold kameraet over QR-etiketten på utstyret. Appen leser bare koden inni den oransje rammen, så du treffer riktig selv når flere står tett.</p>
+      <p>Utstyret åpnes, og ett trykk på «Hent» gjør det til ditt. Er etiketten slitt, kan du skrive inn koden i stedet.</p>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="phone"><img src="bilder/lager.jpg" alt="Lageret i appen med søk, filtre og utstyr med bilder" width="600" height="1304" loading="lazy"></div>
+    <div class="text">
+      <span class="num">3 · Lager</span>
+      <h2>Hele lageret, med bilder</h2>
+      <p>Søk etter utstyr, person eller prosjekt. Filtrer på status og kategori, og se med en gang hva som er ledig.</p>
+      <ul>
+        <li>Grønn: ledig på lageret</li>
+        <li>Grå: på et prosjekt eller hos en kollega</li>
+        <li>Lilla: på service</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="phone"><img src="bilder/prosjekt.jpg" alt="Prosjektsiden med ansvarlige, ansatte og utstyr på prosjektet" width="520" height="1125" loading="lazy"></div>
+    <div class="text">
+      <span class="num">4 · Prosjekter</span>
+      <h2>Alt på byggeplassen</h2>
+      <p>Hvert prosjekt viser hvem som er ansvarlig, hvem som jobber der, og hvilket utstyr som står på plassen eller er med folkene.</p>
+      <p>Utstyr kan settes igjen på prosjektet uten at noen har ansvaret, og den som trenger det, henter det derfra.</p>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="phone"><img src="bilder/etiketter.jpg" alt="Utskrift av QR-etiketter med valg av størrelse" width="520" height="1125" loading="lazy"></div>
+    <div class="text">
+      <span class="num">5 · Etiketter</span>
+      <h2>Skriv ut etiketter selv</h2>
+      <p>Velg utstyret og størrelsen, 5 × 5 eller 3 × 3 cm, og skriv ut på vanlig A4. Du kan også lagre som PDF og sende til den som skal skrive ut.</p>
+      <p>Registrerer du ti like stiger, får de numre automatisk og hver sin etikett.</p>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="phone"><img src="bilder/ansatte.jpg" alt="Ansatte-siden med invitasjonskode, ledere og ansatte" width="600" height="1304" loading="lazy"></div>
+    <div class="text">
+      <span class="num">6 · Ansatte</span>
+      <h2>For sjefen</h2>
+      <p>Del invitasjonskoden med de ansatte, så melder de seg inn selv. Nye ansatte og lærlinger kommer først inn når en leder har godkjent dem.</p>
+      <p>Du ser hvor mye utstyr hver person har, og hvem som er ledere og prosjektledere.</p>
+    </div>
+  </section>
+
+  <div class="cta">
+    <div>
+      <h2>Vil du prøve?</h2>
+      <p>Pilot vinteren 2027: 10 plasser, 3 måneder gratis og fast lavere pris.</p>
+    </div>
+    <a class="btn btn-orange" href="mailto:post@utstyrappen.no?subject=Interessert%20i%20Utstyrappen">Meld interesse</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Utstyrappen · Sheppard Digital · Org.nr 938 705 119</span>
+    <span><a href="/">Forsiden</a> · <a href="personvern.html">Personvern</a></span>
+  </div>
+</footer>
+</body>
+</html>
